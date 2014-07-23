@@ -2,6 +2,7 @@ package be.ordina.utdemo.mocktype;
 
 
 import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
 
 import org.easymock.EasyMockRunner;
 import org.easymock.EasyMockSupport;
@@ -31,4 +32,17 @@ public class TestMockEasyMock extends EasyMockSupport{
         verifyAll();
     }
 
+
+    @Test
+    public void testCarWithAMockedEngineThatDoesNotStart() {
+        expect(mockEngine.isRunning()).andStubReturn(false);
+        mockEngine.start();
+        expectLastCall().anyTimes();
+        replayAll();
+
+        Car testedCar = new Car(mockEngine);
+        for (int i=0;i<100;++i) {
+            testedCar.start();
+        }
+    }
 }
