@@ -9,7 +9,7 @@ import org.junit.Test;
  *
  */
 public class TestMockDummy {
-    final Engine dummyEngine = new DieselEngine();
+    final Engine dummyEngine = new DummyEngine();
     Car testedCar = new Car(new DieselEngine());
     @Test(expected = IllegalStateException.class)
     public void testExceptionIfCarStarted() {
