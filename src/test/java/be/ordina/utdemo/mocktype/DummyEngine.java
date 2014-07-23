@@ -8,5 +8,5 @@ public class DummyEngine implements Engine {
     public void stop() {}
 
     @Override
-    public boolean isRunning() { return true;  }
+    public boolean isRunning() { return false;  }
 }
